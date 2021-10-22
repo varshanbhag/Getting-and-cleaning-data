@@ -86,7 +86,7 @@ names(TidyData) <- gsub("^t","Time", names(TidyData))
 names(TidyData) <- gsub("^f","Frequency", names(TidyData))
 names(TidyData) <- gsub("angle.", "Angle", names(TidyData))
 names(TidyData) <- gsub("freq","_Frequency",names(TidyData))
-names(TidyData) <- gsub("Meanreq","Mean_Frequency",names(TidyData),ignore.case=TRUE, fixed = TRUE)
+names(TidyData) <- gsub("Meanreq","Mean_Frequency",names(TidyData),ignore.case=TRUE)
 names(TidyData) <- gsub("TimeBody", "Time_Body", names(TidyData))
 names(TidyData) <- gsub("FrequencyBody", "Frequency_Body", names(TidyData))
 names(TidyData) <- gsub("AngletBody", "Angle_Body", names(TidyData))
@@ -97,3 +97,5 @@ names(TidyData) <- gsub("AngletBody", "Angle_Body", names(TidyData))
 Average_Data <- TidyData %>% 
   group_by(Subject.no., Activity) %>%
   summarise_all(funs(mean))
+
+FinalTidydata <- Average_Data
