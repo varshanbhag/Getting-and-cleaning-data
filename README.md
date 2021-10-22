@@ -23,3 +23,5 @@
     6) FinalTidyData.txt is the final dataset which is final output
 ## CodeBook.md
     This has the sequential process of how the run_analysis.R gets and processes the data
+## FinalTidyData.txt
+    This is the file needed for coursera submission
