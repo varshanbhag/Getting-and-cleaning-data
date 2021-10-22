@@ -67,14 +67,14 @@ Subject <- rbind(SubjectTrain, SubjectTest)
 Merged_Data <- cbind(Subject, YAll, XAll)
 
 
-# Extracts only the measurements on the mean and standard deviation for each measurement. 
+# Extracted only the measurements on the mean and standard deviation for each measurement. 
 TidyData <- Merged_Data %>% select(Subject.no., Code, contains("mean"), contains("std"))
 
-# Uses descriptive activity names to name the activities in the data set
+# Used descriptive activity names to name the activities in the data set
 
 TidyData$Code <- activity[TidyData$Code, 2]
 
-# Appropriately labels the data set with descriptive variable names. 
+# Appropriately labelled the data set with descriptive variable names. 
 names(TidyData)[2] <-"Activity"
 
 names(TidyData) <- gsub("ACC","_Accelerometer",names(TidyData),ignore.case = TRUE)
@@ -95,18 +95,19 @@ names(TidyData) <- gsub("FrequencyBody", "Frequency_Body", names(TidyData))
 names(TidyData) <- gsub("AngletBody", "Angle_Body", names(TidyData))
 
 # From the data set in step 4, 
-# creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+# created a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 Average_Data <- TidyData %>% 
   group_by(Subject.no., Activity) %>%
   summarise_all(funs(mean))
 
 FinalTidydata <- Average_Data
-# Contents of the final Tidy data
+
+# Display Contents of the final Tidy data
 FinalTidydata
 
-# Labels and data types of the Final Tidy data
+# Display Labels and data types of the Final Tidy data
 str(FinalTidydata)
 
-# For uploading dataste
+# Uploading data set as txt for coursera submission
 write.table(FinalTidydata, "FinalTidydata.txt", row.name=FALSE)
