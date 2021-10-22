@@ -109,5 +109,5 @@ FinalTidydata
 # Display Labels and data types of the Final Tidy data
 str(FinalTidydata)
 
-# Uploading data set as txt for coursera submission
+# Uploading data set as txt for Coursera submission
 write.table(FinalTidydata, "FinalTidydata.txt", row.name=FALSE)
