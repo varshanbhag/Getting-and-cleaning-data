@@ -107,3 +107,6 @@ FinalTidydata
 
 # Labels and data types of the Final Tidy data
 str(FinalTidydata)
+
+# For uploading dataste
+write.table(FinalTidydata, "FinalTidydata.txt", row.name=FALSE)
